@@ -48,7 +48,7 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY',
         density = gaussian_kde(data)
 
         
-        axs[0,1].hist(data, bins = 30, density = True,  alpha=0.6, color='gray', label='Histogram' )
+        axs[0,1].hist(data, bins = hist_bins, density = True,  alpha=0.6, color='gray', label='Histogram' )
         axs[0, 1].plot(xs, density(xs), color='red', linewidth=2, label='Density')
     axs[0, 1].set_title("Distribution of Sunspot Activity")
     axs[0, 1].set_xlabel("Sunspot Count")
@@ -96,7 +96,7 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY',
     return fig
 
 # 메인 앱
-st.title('🌞 태양흑점 데이터 분석 대시보드 🌞')
+st.title('🌞태양흑점 데이터 분석 대시보드🌞')
 st.markdown("""
     이 대시보드는 태양흑점 데이터를 다양한 시각화 방법으로 보여줍니다.
     """)
@@ -116,7 +116,7 @@ try:
     year_range = st.sidebar.slider(
         min_value = min_year,
         max_value = max_year,
-        value = (min_value, min_value)
+        value = (min_year, max_year)
     )
 
     # 히스토그램 빈(bin) 수 조절
@@ -136,12 +136,12 @@ try:
     )
 
     # 산점도 점 크기 조절
-    '''코드를 작성하시오'''
+    
     point_size = st.sidebar.slider('산정도 점 크기', 1,50,10)
 
 
     # 산점도 투명도 조절
-    '''코드를 작성하시오'''
+    
     point_alpha = st.sidebar.slider('산점도 투명도', 0.1, 1.0, 0.5)
 
 
