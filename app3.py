@@ -114,6 +114,7 @@ try:
     max_year = int(df["YEAR"].max())
 
     year_range = st.sidebar.slider(
+        '연도 범위 선택',
         min_value = min_year,
         max_value = max_year,
         value = (min_year, max_year)
