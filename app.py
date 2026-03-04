@@ -90,9 +90,9 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY'):
 
 # 메인 앱
 st.title('🌞 태양흑점 데이터 분석 대시보드 🌞')
-st.markdown("""
+st.markdown("
     이 대시보드는 태양흑점 데이터를 다양한 시각화 방법으로 보여줍니다.
-    """)
+    ")
 
 try:
     # 데이터 로드
