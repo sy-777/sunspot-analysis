@@ -11,7 +11,7 @@ Original file is located at
 # [1] 데이터 불러오기
 # ----------------------------------
 # 데이터 경로 유의: 루트의 data 폴더 안에 있다고 가정합니다.
-df = pd.read_csv('/data/sunspots_for_prophet.csv')
+df = pd.read_csv('data/sunspots_for_prophet.csv')
 df['ds'] = pd.to_datetime(df['ds'])
 
 st.subheader("📄 데이터 미리보기")
