@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from prophet import Prophet
+from prophet.diagnostics import cross_validation, performance_metrics
 
 # 페이지 설정
 st.set_page_config(page_title="🌞 Sunspot Forecast", layout="wide")
@@ -34,6 +35,9 @@ model = Prophet(
 )
 model.add_seasonality(name = 'sunspot_cycle', period = 11, fourier_order = 5)
 model.fit(df)
+
+cv_results = cross_validation(model, initial='29200 days', period='1825 days', horizon='3650 days')
+perf_metrics = performance_metrics(cv_results)
 # ----------------------------------
 # [3] 예측 수행
 # ----------------------------------
@@ -102,7 +106,7 @@ ax2.axhline(0, color = 'black', linestyle = '--')
 plt.title("Residual Analysis (Actual - Predicted)")
 plt.xlabel("Year")
 plt.ylabel("Residual")
-plt.legend(loc='upper left')
+plt.legend()
 plt.grid(True)
 plt.tight_layout()
 
