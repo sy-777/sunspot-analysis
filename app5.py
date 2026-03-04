@@ -53,6 +53,7 @@ st.subheader("📈 Prophet Forecast Plot")
 # TODO: model.plot()을 사용하여 예측 결과를 시각화하세요.
 
 fig1 = model.plot(forecast)
+plt.title("Prophet Forecast Plot")
 st.pyplot(fig1)
 
 st.subheader("📊 Forecast Components")
